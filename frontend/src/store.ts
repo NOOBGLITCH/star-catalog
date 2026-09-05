@@ -6,7 +6,16 @@ import type {
 } from "./types";
 
 const ALL = "all";
-const INITIAL_CHUNKS = 2;
+const INITIAL_CHUNKS = 1;
+
+export const INITIAL_FILTERS: CatalogFilters = {
+	query: "",
+	category: ALL,
+	language: ALL,
+	license: ALL,
+	sort: "starred-desc",
+	visibility: "all",
+};
 
 type CatalogState = {
 	manifest: CatalogManifest | null;
@@ -19,10 +28,12 @@ type CatalogState = {
 	loadManifest: () => Promise<void>;
 	loadNextChunks: (count?: number) => Promise<void>;
 	loadAllChunks: () => Promise<void>;
+	ensureAllLoaded: () => Promise<void>;
 	setFilter: <T extends keyof CatalogFilters>(
 		key: T,
 		value: CatalogFilters[T],
 	) => void;
+	resetFilters: () => void;
 };
 
 async function fetchJson<T>(path: string): Promise<T> {
@@ -45,14 +56,7 @@ export const useCatalogStore = create<CatalogState>((set, get) => ({
 	manifest: null,
 	records: [],
 	loadedChunks: new Set(),
-	filters: {
-		query: "",
-		category: ALL,
-		language: ALL,
-		license: ALL,
-		sort: "starred-desc",
-		visibility: "all",
-	},
+	filters: { ...INITIAL_FILTERS },
 	isLoading: true,
 	isLoadingAll: false,
 	error: null,
@@ -118,6 +122,12 @@ export const useCatalogStore = create<CatalogState>((set, get) => ({
 		if (manifest) await get().loadNextChunks(manifest.chunkCount);
 		set({ isLoadingAll: false });
 	},
+	ensureAllLoaded: async () => {
+		const { manifest, loadedChunks } = get();
+		if (!manifest || loadedChunks.size >= manifest.chunkCount) return;
+		await get().loadAllChunks();
+	},
 	setFilter: (key, value) =>
 		set((state) => ({ filters: { ...state.filters, [key]: value } })),
+	resetFilters: () => set({ filters: { ...INITIAL_FILTERS } }),
 }));

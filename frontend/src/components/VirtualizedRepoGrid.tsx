@@ -1,15 +1,12 @@
 import { useWindowVirtualizer } from "@tanstack/react-virtual";
 import { useResponsiveColumns } from "../hooks/useResponsiveColumns";
+import { ROW_HEIGHT } from "../layout";
 import type { ClassifiedStarRecord } from "../types";
 import { RepositoryCard } from "./RepositoryCard";
 
 interface VirtualizedRepoGridProps {
 	records: ClassifiedStarRecord[];
 }
-
-const CARD_HEIGHT = 265;
-const ROW_GAP = 12.8;
-const ROW_HEIGHT = CARD_HEIGHT + ROW_GAP;
 
 export function VirtualizedRepoGrid({ records }: VirtualizedRepoGridProps) {
 	const columns = useResponsiveColumns();
@@ -23,8 +20,9 @@ export function VirtualizedRepoGrid({ records }: VirtualizedRepoGridProps) {
 	});
 
 	return (
-		<div className="virtual-grid-container">
+		<ul className="virtual-grid-container list-none" aria-label="Repositories">
 			<div
+				role="presentation"
 				style={{
 					height: `${virtualizer.getTotalSize()}px`,
 					width: "100%",
@@ -39,6 +37,7 @@ export function VirtualizedRepoGrid({ records }: VirtualizedRepoGridProps) {
 						<div
 							key={virtualRow.key}
 							data-index={virtualRow.index}
+							role="presentation"
 							style={{
 								position: "absolute",
 								top: 0,
@@ -59,6 +58,6 @@ export function VirtualizedRepoGrid({ records }: VirtualizedRepoGridProps) {
 					);
 				})}
 			</div>
-		</div>
+		</ul>
 	);
 }

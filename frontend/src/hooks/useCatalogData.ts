@@ -1,7 +1,21 @@
 import { useEffect, useMemo } from "react";
-import { useCatalogStore } from "../store";
+import { INITIAL_FILTERS, useCatalogStore } from "../store";
 import type { CatalogFilters } from "../types";
 import { matches, sortRecords } from "../utils";
+import { useDebouncedValue } from "./useDebouncedValue";
+
+const DEBOUNCE_MS = 250;
+
+function hasActiveFilters(filters: CatalogFilters): boolean {
+	return (
+		filters.query.trim() !== "" ||
+		filters.category !== INITIAL_FILTERS.category ||
+		filters.language !== INITIAL_FILTERS.language ||
+		filters.license !== INITIAL_FILTERS.license ||
+		filters.sort !== INITIAL_FILTERS.sort ||
+		filters.visibility !== INITIAL_FILTERS.visibility
+	);
+}
 
 export function useCatalogData() {
 	const manifest = useCatalogStore((state) => state.manifest);
@@ -10,35 +24,51 @@ export function useCatalogData() {
 	const isLoading = useCatalogStore((state) => state.isLoading);
 	const isLoadingAll = useCatalogStore((state) => state.isLoadingAll);
 	const error = useCatalogStore((state) => state.error);
-	const loadedChunks = useCatalogStore((state) => state.loadedChunks);
 	const loadManifest = useCatalogStore((state) => state.loadManifest);
-	const loadAllChunks = useCatalogStore((state) => state.loadAllChunks);
+	const ensureAllLoaded = useCatalogStore((state) => state.ensureAllLoaded);
 	const setFilter = useCatalogStore((state) => state.setFilter);
+	const resetFilters = useCatalogStore((state) => state.resetFilters);
 
 	useEffect(() => {
 		void loadManifest();
 	}, [loadManifest]);
 
-	// Filtering and filter options must be based on the complete catalog. The
-	// first chunks are only a rendering/loading optimization, not a data limit.
+	// The input stays live for responsiveness; filtering commits on debounce.
+	const debouncedQuery = useDebouncedValue(filters.query, DEBOUNCE_MS);
+	const effectiveFilters = useMemo(
+		() => ({ ...filters, query: debouncedQuery }),
+		[filters, debouncedQuery],
+	);
+
+	// Narrowing filters must see the complete catalog. Plain browsing
+	// (category + sort only) stays progressive and paginates on scroll.
+	const needsFullDataset =
+		effectiveFilters.query.trim() !== "" ||
+		effectiveFilters.language !== INITIAL_FILTERS.language ||
+		effectiveFilters.license !== INITIAL_FILTERS.license ||
+		effectiveFilters.visibility !== INITIAL_FILTERS.visibility;
+
 	useEffect(() => {
-		if (manifest && loadedChunks.size < manifest.chunkCount) {
-			void loadAllChunks();
+		if (manifest && needsFullDataset) {
+			void ensureAllLoaded();
 		}
-	}, [manifest, loadedChunks.size, loadAllChunks]);
+	}, [manifest, needsFullDataset, ensureAllLoaded]);
 
 	const visibleRecords = useMemo(
 		() =>
 			sortRecords(
-				records.filter((record) => matches(record, filters)),
-				filters.sort,
+				records.filter((record) => matches(record, effectiveFilters)),
+				effectiveFilters.sort,
 			),
-		[records, filters],
+		[records, effectiveFilters],
 	);
 
 	const categoryRecords = useMemo(
-		() => records.filter((record) => matches(record, filters, ["category"])),
-		[records, filters],
+		() =>
+			records.filter((record) =>
+				matches(record, effectiveFilters, ["category"]),
+			),
+		[records, effectiveFilters],
 	);
 
 	const filterOptions = (key: "language" | "license") =>
@@ -54,9 +84,13 @@ export function useCatalogData() {
 		value: CatalogFilters[T],
 	) => setFilter(key, value);
 
+	const totalLoaded = records.length;
+	const totalExpected = manifest?.total ?? 0;
+
 	return {
 		manifest,
 		filters,
+		effectiveFilters,
 		visibleRecords,
 		categoryRecords,
 		categories: manifest?.categories ?? [],
@@ -66,5 +100,10 @@ export function useCatalogData() {
 		loadManifest,
 		filterOptions,
 		updateFilter,
+		resetFilters,
+		hasActiveFilters: hasActiveFilters(effectiveFilters),
+		totalLoaded,
+		totalExpected,
+		isPartial: manifest !== null && totalLoaded < totalExpected,
 	};
 }

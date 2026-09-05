@@ -23,7 +23,7 @@ export function CategoryStrip({
 
 	return (
 		<section
-			className="flex gap-2 overflow-x-auto border-y border-base-300 py-3"
+			className="sticky top-0 z-10 flex gap-2 overflow-x-auto border-y border-base-300 bg-base-100/95 py-3 backdrop-blur"
 			aria-label="Categories"
 		>
 			<button

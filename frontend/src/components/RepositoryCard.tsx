@@ -6,6 +6,7 @@ import {
 	Scale,
 	Star,
 } from "lucide-react";
+import { CARD_HEIGHT } from "../layout";
 import type { ClassifiedStarRecord } from "../types";
 import { formatNumber, formatRelative } from "../utils";
 
@@ -15,7 +16,10 @@ interface RepositoryCardProps {
 
 export function RepositoryCard({ record }: RepositoryCardProps) {
 	return (
-		<article className="card card-bordered h-[265px] bg-[linear-gradient(145deg,#171d21,#13191c)] shadow-sm transition-colors hover:border-[#d4f56a88]">
+		<li
+			className="card card-bordered bg-[linear-gradient(145deg,#171d21,#13191c)] shadow-sm transition-colors hover:border-[#d4f56a88]"
+			style={{ height: CARD_HEIGHT }}
+		>
 			<div className="card-body gap-2 overflow-hidden p-4">
 				<div className="flex items-center justify-between gap-2">
 					<span className="category-label">{record.categoryTitle}</span>
@@ -85,6 +89,6 @@ export function RepositoryCard({ record }: RepositoryCardProps) {
 					</time>
 				</div>
 			</div>
-		</article>
+		</li>
 	);
 }

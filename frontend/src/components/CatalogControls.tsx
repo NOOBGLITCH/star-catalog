@@ -1,4 +1,5 @@
 import { Search } from "lucide-react";
+import { useEffect, useRef } from "react";
 import type { CatalogFilters, SortOption, VisibilityOption } from "../types";
 import { Select } from "./Select";
 
@@ -18,6 +19,26 @@ export function CatalogControls({
 	filterOptions,
 	onUpdateFilter,
 }: CatalogControlsProps) {
+	const searchRef = useRef<HTMLInputElement>(null);
+
+	useEffect(() => {
+		const onKeyDown = (event: KeyboardEvent) => {
+			const target = event.target as HTMLElement | null;
+			const typing =
+				target !== null &&
+				(target.tagName === "INPUT" ||
+					target.tagName === "TEXTAREA" ||
+					target.tagName === "SELECT" ||
+					target.isContentEditable);
+			if (event.key === "/" && !typing) {
+				event.preventDefault();
+				searchRef.current?.focus();
+			}
+		};
+		window.addEventListener("keydown", onKeyDown);
+		return () => window.removeEventListener("keydown", onKeyDown);
+	}, []);
+
 	return (
 		<section
 			className="grid gap-3 py-5 md:grid-cols-2 lg:grid-cols-[2fr_repeat(4,minmax(130px,1fr))]"
@@ -28,6 +49,7 @@ export function CatalogControls({
 					<span className="label-text text-xs font-bold uppercase tracking-widest text-primary">
 						Search the atlas
 					</span>
+					<kbd className="kbd kbd-xs">/</kbd>
 				</div>
 				<div className="relative">
 					<Search
@@ -36,10 +58,17 @@ export function CatalogControls({
 						className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-base-content/40"
 					/>
 					<input
+						ref={searchRef}
 						type="search"
 						className="input input-bordered w-full pl-9"
 						value={filters.query}
 						onChange={(event) => onUpdateFilter("query", event.target.value)}
+						onKeyDown={(event) => {
+							if (event.key === "Escape" && filters.query !== "") {
+								onUpdateFilter("query", "");
+								searchRef.current?.blur();
+							}
+						}}
 						placeholder="Name, topic, language, description..."
 					/>
 				</div>
