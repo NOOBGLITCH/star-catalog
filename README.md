@@ -2,7 +2,7 @@
 
 A generated catalog of starred GitHub repositories, grouped into stable categories.
 
-> Generated at 2026-09-05T15:03:31.272Z for [@NOOBGLITCH](https://github.com/NOOBGLITCH) | Total Repositories: **121** across **18** categories.
+> Generated at 2026-09-05T20:35:13.805Z for [@NOOBGLITCH](https://github.com/NOOBGLITCH) | Total Repositories: **121** across **20** categories.
 
 ## Recent Stars
 
@@ -21,11 +21,12 @@ A generated catalog of starred GitHub repositories, grouped into stable categori
 
 ## Categories
 
-### AI & Agents (2)
+### AI & Agents (3)
 *LLM apps, agent frameworks, inference stacks, model tooling, prompting workflows, and AI-native products.*
 
 - [AlexsJones/llmfit](https://github.com/AlexsJones/llmfit) - Hundreds of models & providers. One command to find what runs on your hardware. (34911 ★)
 - [AntigmaLabs/ante](https://github.com/AntigmaLabs/ante) - Ghost in your shell. Ante is a self-contained agent harness with a highly optimized core. It works like Claude Code or Codex, with none of their dependencies or model constraints.  (1930 ★)
+- [shubhamkumar27/Face_recognition_based_attendance_system](https://github.com/shubhamkumar27/Face_recognition_based_attendance_system) - A python GUI integrated attendance system using face recognition to take attendance. (249 ★)
 
 ### Design Systems & Components (3)
 *Component libraries, UI kits, headless primitives, styleguides, and reusable systems for building interfaces.*
@@ -88,7 +89,12 @@ A generated catalog of starred GitHub repositories, grouped into stable categori
 - [mitthu786/TS-JioTV](https://github.com/mitthu786/TS-JioTV) - 🚀 TS-JioTV ReBorn with ⏰ 7-Days CatchUp (385 ★)
 - [OpenSecretCloud/Maple](https://github.com/OpenSecretCloud/Maple) - Maple - Private AI Chat (91 ★)
 
-### DevOps & Infra (8)
+### Media & Creator Tools (1)
+*PDF, audio, video, image, OCR, downloader, and creator-focused utilities for producing, transforming, or consuming media.*
+
+- [m4mallu/tube](https://github.com/m4mallu/tube) - https://github.com/m4mallu/inline-tube-mate (31 ★)
+
+### DevOps & Infra (10)
 *Containers, CI/CD, infrastructure-as-code, self-hosting, deployment pipelines, and observability or operations tooling.*
 
 - [agentconnect-md/agentconnect](https://github.com/agentconnect-md/agentconnect) - The open-source, multi-agent alternative to Claude Tag.  @ any agent, wherever work happens, they work alongside your team, learning as they go. (1317 ★)
@@ -96,9 +102,11 @@ A generated catalog of starred GitHub repositories, grouped into stable categori
 - [DaKheera47/job-ops](https://github.com/DaKheera47/job-ops) - job-ops: DevOps principles applied to job hunting. A self-hosted pipeline to track, analyze, and assist your application process (3917 ★)
 - [kubeskills/grow](https://github.com/kubeskills/grow) - No description (163 ★)
 - [learnwithdevopsengineer3682/docker-home-lab-series](https://github.com/learnwithdevopsengineer3682/docker-home-lab-series) - No description (160 ★)
+- [m4mallu/clonebot](https://github.com/m4mallu/clonebot) - A Telegram robot can clone medias from any chat to your own chat. (323 ★)
 - [OneUptime/oneuptime](https://github.com/OneUptime/oneuptime) - Complete open-source monitoring and observability platform. (7560 ★)
 - [piyushsachdeva/10weeksofcloudops](https://github.com/piyushsachdeva/10weeksofcloudops) - No description (235 ★)
 - [pratham022/pratham022](https://github.com/pratham022/pratham022) - No description (1 ★)
+- [xgorn/BakaLeech-v2](https://github.com/xgorn/BakaLeech-v2) - Web transloader, deployable to heroku, clone of Bakaleech (9 ★)
 
 ### Databases & Storage (4)
 *Databases, ORMs, query layers, caches, and storage systems used to persist, model, and retrieve application data.*
@@ -144,7 +152,6 @@ A generated catalog of starred GitHub repositories, grouped into stable categori
 - [dashezup/Deezer_bot](https://github.com/dashezup/Deezer_bot) - https://tele.gg/DeezerMusicBot (2 ★)
 - [Divkix/Alita_Robot](https://github.com/Divkix/Alita_Robot) - 🤖 Alita is a Telegram Group management bot made using Gotgbot and Go, which makes it modern and ⏩ faster than most of the Telegram chat managers. 💬 (247 ★)
 - [kalanakt/All-Url-Uploader](https://github.com/kalanakt/All-Url-Uploader) - A simple telegram Bot, Upload Media File| video To telegram using the direct download link. (youtube, Mediafire, google drive, mega drive, etc) (526 ★)
-- [m4mallu/clonebot](https://github.com/m4mallu/clonebot) - A Telegram robot can clone medias from any chat to your own chat. (323 ★)
 - [m4mallu/inline-tube-mate](https://github.com/m4mallu/inline-tube-mate) - An Inline Telegram YouTube downloader bot with custom, permanent thumbnail support, force subscription and cancel upload facility. The bot can send or broadcast messages to the users. (41 ★)
 - [mrvishal2k2/TG-ShortLinkBot](https://github.com/mrvishal2k2/TG-ShortLinkBot) - An simple url shortener bot which uses api of bit.ly (52 ★)
 - [NOOBGLITCH/openroutertelegrambot](https://github.com/NOOBGLITCH/openroutertelegrambot) - The OpenRouter Telegram Bot allows you to interact with various models through Telegram. This bot supports 33 different models, providing a wide range of functionalities and integrations. (5 ★)
@@ -155,12 +162,18 @@ A generated catalog of starred GitHub repositories, grouped into stable categori
 - [PR0FESS0R-99/DC-Tracker-TG-Bot](https://github.com/PR0FESS0R-99/DC-Tracker-TG-Bot) - Telegram DC Tracker Bot (8 ★)
 - [PR0FESS0R-99/DonLee-Robot-V1](https://github.com/PR0FESS0R-99/DonLee-Robot-V1) - No description (36 ★)
 - [PR0FESS0R-99/INFORMATION-BOT](https://github.com/PR0FESS0R-99/INFORMATION-BOT) - Telegram Id Bot (32 ★)
+- [PR0FESS0R-99/Simple-Pyrogram-Bot](https://github.com/PR0FESS0R-99/Simple-Pyrogram-Bot) - No description (7 ★)
 - [Private-Bots-Official/Anime-Generator-Bot](https://github.com/Private-Bots-Official/Anime-Generator-Bot) - A anime picture generator telegram bot which can generate NSFW (18+) pictures too. (38 ★)
 - [rsoorajs/gdrive-telegram-bot-1](https://github.com/rsoorajs/gdrive-telegram-bot-1) -  A Google Drive Telegram Bot for managing, cloning files, uploading files on Google Drive (2 ★)
 - [sagarbhusal0/openroutertelegrambot](https://github.com/sagarbhusal0/openroutertelegrambot) - The OpenRouter Telegram Bot allows you to interact with various models through Telegram. This bot supports 33 different models, providing a wide range of functionalities and integrations. (1 ★)
 - [TechShreyash/UnstopOpportunitiesSummarizer](https://github.com/TechShreyash/UnstopOpportunitiesSummarizer) - No description (1 ★)
 - [viperadnan-git/google-drive-telegram-bot](https://github.com/viperadnan-git/google-drive-telegram-bot) -  A Google Drive Telegram Bot for managing, cloning files, uploading files on Google Drive (707 ★)
 - [winniesi/tg-gemini-bot](https://github.com/winniesi/tg-gemini-bot) - Just a single click and you've got it set up on Vercel. (128 ★)
+
+### Security & Privacy (1)
+*Authentication, vulnerabilities, privacy-focused tooling, cryptography, offensive research, and defensive security workflows.*
+
+- [aekanshd/password-keeper](https://github.com/aekanshd/password-keeper) - A simple and secure Password Management System made completely in Python. (34 ★)
 
 ### Design & Themes (2)
 *Design assets, theme packs, iconography, typography, motion systems, and visual exploration or presentation tools.*
@@ -182,7 +195,7 @@ A generated catalog of starred GitHub repositories, grouped into stable categori
 - [ShareDropio/sharedrop](https://github.com/ShareDropio/sharedrop) - Easy P2P file transfer powered by WebRTC - inspired by Apple AirDrop (10749 ★)
 - [yorukot/superfile](https://github.com/yorukot/superfile) - Pretty fancy and modern terminal file manager (23098 ★)
 
-### Learning & Reference (14)
+### Learning & Reference (15)
 *Tutorials, example projects, awesome-lists, notes, roadmaps, boilerplates, and repositories intended primarily for learning or reference.*
 
 - [alexandresanlim/Badges4-README.md-Profile](https://github.com/alexandresanlim/Badges4-README.md-Profile) - :octocat: Improve your README.md profile with these amazing badges. (13451 ★)
@@ -199,17 +212,12 @@ A generated catalog of starred GitHub repositories, grouped into stable categori
 - [Pradumnasaraf/open-source-with-pradumna](https://github.com/Pradumnasaraf/open-source-with-pradumna) - Open Source guide - Contains resources and materials to learn and get yourself started with Open Source, Git, and GitHub. (833 ★)
 - [Python-World/python-mini-projects](https://github.com/Python-World/python-mini-projects) - A collection of simple python mini projects to enhance your python skills (19300 ★)
 - [saviomartin/codehouse](https://github.com/saviomartin/codehouse) - A whole new world of 300+ developer cheatsheets (discontinued) (959 ★)
+- [zhiwehu/Python-programming-exercises](https://github.com/zhiwehu/Python-programming-exercises) - 100+ Python challenging programming exercises (29598 ★)
 
-### Misc (10)
+### Misc (4)
 *Everything that still does not fit the taxonomy cleanly after the more specific buckets have been applied.*
 
-- [aekanshd/password-keeper](https://github.com/aekanshd/password-keeper) - A simple and secure Password Management System made completely in Python. (34 ★)
 - [FileLeech/rapidleech-ultimate](https://github.com/FileLeech/rapidleech-ultimate) - RapidLeech Ultimate With Movie Thumbnailer (7 ★)
-- [m4mallu/tube](https://github.com/m4mallu/tube) - https://github.com/m4mallu/inline-tube-mate (31 ★)
 - [PR0FESS0R-99/Open-Source](https://github.com/PR0FESS0R-99/Open-Source) - No description (10 ★)
-- [PR0FESS0R-99/Simple-Pyrogram-Bot](https://github.com/PR0FESS0R-99/Simple-Pyrogram-Bot) - No description (7 ★)
 - [rahulps1000/HerokuBannedDeployer](https://github.com/rahulps1000/HerokuBannedDeployer) - With this you can deploy repos that are banned/blacklisted by heroku (76 ★)
-- [shubhamkumar27/Face_recognition_based_attendance_system](https://github.com/shubhamkumar27/Face_recognition_based_attendance_system) - A python GUI integrated attendance system using face recognition to take attendance. (249 ★)
 - [tuhinpal/Upier](https://github.com/tuhinpal/Upier) - Shareable Payment's Link for UPI (49 ★)
-- [xgorn/BakaLeech-v2](https://github.com/xgorn/BakaLeech-v2) - Web transloader, deployable to heroku, clone of Bakaleech (9 ★)
-- [zhiwehu/Python-programming-exercises](https://github.com/zhiwehu/Python-programming-exercises) - 100+ Python challenging programming exercises (29598 ★)

@@ -1,5 +1,14 @@
 {
 	"$schema": "./overrides.schema.json",
 	"exclude": [],
-	"categories": []
+	"categories": [
+		{
+			"match": { "fullName": "PR0FESS0R-99/Simple-Pyrogram-Bot" },
+			"category": "automation"
+		},
+		{
+			"match": { "fullName": "m4mallu/tube" },
+			"category": "media"
+		}
+	]
 }

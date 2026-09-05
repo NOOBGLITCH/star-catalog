@@ -45,7 +45,12 @@
 					"retrieval-augmented-generation",
 					"retrieval augmented generation",
 					"vector-db",
-					"text-embeddings-inference"
+					"text-embeddings-inference",
+					"computer vision",
+					"face recognition",
+					"image recognition",
+					"object detection",
+					"opencv"
 				],
 				"languages": ["Jupyter Notebook"],
 				"strongKeywords": [
@@ -74,7 +79,9 @@
 					"langchain",
 					"llamaindex",
 					"ollama",
-					"text-embeddings-inference"
+					"text-embeddings-inference",
+					"computer vision",
+					"face recognition"
 				],
 				"singletonStrongKeywords": [
 					"ai-agents",
@@ -97,7 +104,9 @@
 					"langchain",
 					"llamaindex",
 					"ollama",
-					"text-embeddings-inference"
+					"text-embeddings-inference",
+					"computer vision",
+					"face recognition"
 				],
 				"readmeExcludedKeywords": [
 					"openai",
@@ -938,7 +947,9 @@
 					"screen-capture",
 					"screen capture",
 					"thumbnail",
-					"transcoder"
+					"transcoder",
+					"transloader",
+					"movie"
 				],
 				"languages": [],
 				"strongKeywords": [
@@ -950,7 +961,9 @@
 					"transcription",
 					"screen recorder",
 					"converter",
-					"subtitle"
+					"subtitle",
+					"transloader",
+					"movie"
 				],
 				"singletonStrongKeywords": [],
 				"readmeExcludedKeywords": [],
@@ -1003,7 +1016,9 @@
 					"container",
 					"renovate",
 					"dependabot",
-					"sre"
+					"sre",
+					"deploy",
+					"heroku"
 				],
 				"languages": [],
 				"strongKeywords": [
@@ -1015,7 +1030,9 @@
 					"gitops",
 					"observability",
 					"self-hosted",
-					"infrastructure as code"
+					"infrastructure as code",
+					"deploy",
+					"heroku"
 				],
 				"singletonStrongKeywords": [],
 				"readmeExcludedKeywords": [],
@@ -1416,7 +1433,10 @@
 					"dns blocklist",
 					"sandbox",
 					"exploit",
-					"threat"
+					"threat",
+					"password",
+					"password manager",
+					"password management"
 				],
 				"languages": [],
 				"strongKeywords": [
@@ -1429,7 +1449,9 @@
 					"cryptography",
 					"privacy",
 					"osint",
-					"exploit"
+					"exploit",
+					"password manager",
+					"password management"
 				],
 				"singletonStrongKeywords": [],
 				"readmeExcludedKeywords": [],
@@ -1635,7 +1657,9 @@
 					"curriculum",
 					"walkthrough",
 					"how-to",
-					"how to"
+					"how to",
+					"exercises",
+					"programming exercises"
 				],
 				"languages": [],
 				"strongKeywords": [
@@ -1649,7 +1673,9 @@
 					"examples",
 					"reference",
 					"spec",
-					"walkthrough"
+					"walkthrough",
+					"exercises",
+					"programming exercises"
 				],
 				"singletonStrongKeywords": [
 					"awesome",
@@ -1662,7 +1688,9 @@
 					"examples",
 					"reference",
 					"spec",
-					"walkthrough"
+					"walkthrough",
+					"exercises",
+					"programming exercises"
 				],
 				"readmeExcludedKeywords": [],
 				"preferredFallbackCategories": ["content-cms", "frontend"],
