@@ -1,4 +1,11 @@
-import { Menu, RotateCcw, SearchX, TriangleAlert } from "lucide-react";
+import {
+	ArrowUpRight,
+	Menu,
+	RotateCcw,
+	SearchX,
+	Star,
+	TriangleAlert,
+} from "lucide-react";
 import { useRef, useState } from "react";
 import { CatalogControls } from "./components/CatalogControls";
 import { CategoryStrip } from "./components/CategoryStrip";
@@ -7,7 +14,7 @@ import { Hero } from "./components/Hero";
 import { VirtualizedRepoGrid } from "./components/VirtualizedRepoGrid";
 import { useCatalogData } from "./hooks/useCatalogData";
 import { useInfiniteScroll } from "./hooks/useInfiniteScroll";
-import { formatNumber } from "./utils";
+import { formatIST, formatNumber } from "./utils";
 
 export function App() {
 	const {
@@ -44,6 +51,38 @@ export function App() {
 				onChange={(event) => setDrawerOpen(event.target.checked)}
 			/>
 			<div className="drawer-content">
+				<div className="navbar sticky top-0 z-30 border-b border-base-300 bg-base-100/95 backdrop-blur">
+					<div className="mx-auto flex w-[min(1240px,calc(100%-2rem))] items-center justify-between">
+						<div className="flex items-center gap-2">
+							<label
+								htmlFor="category-drawer"
+								className="btn btn-ghost btn-sm btn-square"
+								aria-label="Open categories menu"
+							>
+								<Menu size={18} aria-hidden="true" />
+							</label>
+							<span className="text-sm font-black tracking-tight">
+								{manifest?.title ?? "My Stars Atlas"}
+							</span>
+						</div>
+						<div className="flex items-center gap-2">
+							<span className="badge badge-ghost hidden gap-1 sm:inline-flex">
+								<Star size={12} aria-hidden="true" />
+								{formatNumber(totalExpected)} starred
+							</span>
+							<a
+								className="btn btn-ghost btn-sm btn-square"
+								href={`https://github.com/${manifest?.username ?? "NOOBGLITCH"}`}
+								target="_blank"
+								rel="noreferrer noopener"
+								aria-label="Open GitHub profile"
+								title="Open GitHub profile"
+							>
+								<ArrowUpRight size={16} aria-hidden="true" />
+							</a>
+						</div>
+					</div>
+				</div>
 				<main className="mx-auto w-[min(1240px,calc(100%-2rem))] py-8 pb-20">
 					<a
 						href="#catalog-heading"
@@ -71,14 +110,6 @@ export function App() {
 
 					<div className="flex flex-wrap items-center justify-between gap-2 py-6 pb-3 text-sm text-base-content/60">
 						<div className="flex items-center gap-2">
-							<label
-								htmlFor="category-drawer"
-								className="btn btn-ghost btn-sm gap-1"
-								aria-label="Open categories menu"
-							>
-								<Menu size={16} aria-hidden="true" />
-								Categories
-							</label>
 							<h2
 								id="catalog-heading"
 								tabIndex={-1}
@@ -140,6 +171,16 @@ export function App() {
 								<span className="text-sm text-base-content/60">
 									Try a broader search or reset one of the filters.
 								</span>
+								{hasActiveFilters && (
+									<button
+										type="button"
+										className="btn btn-primary btn-sm mt-2"
+										onClick={resetFilters}
+									>
+										<RotateCcw size={14} aria-hidden="true" />
+										Reset filters
+									</button>
+								)}
 							</div>
 						</div>
 					)}
@@ -173,6 +214,23 @@ export function App() {
 							</span>
 						)}
 					</div>
+					<footer className="mt-6 flex flex-wrap items-center justify-between gap-2 border-t border-base-300 pt-4 text-xs text-base-content/50">
+						<span>
+							My Stars Atlas · @{manifest?.username ?? "NOOBGLITCH"} ·{" "}
+							{formatNumber(totalExpected)} repositories
+						</span>
+						<span>
+							Updated {formatIST(manifest?.generatedAt ?? null)} ·{" "}
+							<a
+								className="link"
+								href={`https://github.com/${manifest?.username ?? "NOOBGLITCH"}`}
+								target="_blank"
+								rel="noreferrer noopener"
+							>
+								GitHub profile
+							</a>
+						</span>
+					</footer>
 				</main>
 			</div>
 			<div className="drawer-side">

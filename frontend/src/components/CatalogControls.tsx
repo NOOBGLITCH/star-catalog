@@ -1,4 +1,4 @@
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react";
 import { useEffect, useRef } from "react";
 import type { CatalogFilters, SortOption, VisibilityOption } from "../types";
 import { Select } from "./Select";
@@ -60,7 +60,7 @@ export function CatalogControls({
 					<input
 						ref={searchRef}
 						type="search"
-						className="input input-bordered w-full pl-9"
+						className="input input-bordered w-full pr-10 pl-9"
 						value={filters.query}
 						onChange={(event) => onUpdateFilter("query", event.target.value)}
 						onKeyDown={(event) => {
@@ -71,6 +71,16 @@ export function CatalogControls({
 						}}
 						placeholder="Name, topic, language, description..."
 					/>
+					{filters.query !== "" && (
+						<button
+							type="button"
+							className="btn btn-ghost btn-xs btn-circle absolute top-1/2 right-2 -translate-y-1/2"
+							aria-label="Clear search"
+							onClick={() => onUpdateFilter("query", "")}
+						>
+							<X size={14} aria-hidden="true" />
+						</button>
+					)}
 				</div>
 			</label>
 			<Select

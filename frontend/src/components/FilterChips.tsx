@@ -1,6 +1,24 @@
-import { X } from "lucide-react";
+import {
+	ArrowDownUp,
+	Code,
+	Eye,
+	LayoutGrid,
+	type LucideIcon,
+	Scale,
+	Search,
+	X,
+} from "lucide-react";
 import { INITIAL_FILTERS } from "../store";
 import type { CatalogFilters } from "../types";
+
+const CHIP_ICONS: Record<keyof CatalogFilters, LucideIcon> = {
+	query: Search,
+	category: LayoutGrid,
+	language: Code,
+	license: Scale,
+	visibility: Eye,
+	sort: ArrowDownUp,
+};
 
 interface FilterChipsProps {
 	filters: CatalogFilters;
@@ -45,19 +63,25 @@ export function FilterChips({
 	return (
 		<fieldset className="m-0 flex flex-wrap items-center gap-2 border-0 p-0 pb-1">
 			<legend className="sr-only">Active filters</legend>
-			{chips.map((chip) => (
-				<span key={chip.key} className="badge badge-outline gap-1 py-3">
-					{chip.label}
-					<button
-						type="button"
-						className="inline-flex cursor-pointer items-center"
-						aria-label={`Clear ${chip.key} filter`}
-						onClick={() => onUpdateFilter(chip.key, INITIAL_FILTERS[chip.key])}
-					>
-						<X size={12} aria-hidden="true" />
-					</button>
-				</span>
-			))}
+			{chips.map((chip) => {
+				const Icon = CHIP_ICONS[chip.key];
+				return (
+					<span key={chip.key} className="badge badge-outline gap-1 py-3">
+						<Icon size={12} aria-hidden="true" className="text-primary" />
+						{chip.label}
+						<button
+							type="button"
+							className="inline-flex cursor-pointer items-center"
+							aria-label={`Clear ${chip.key} filter`}
+							onClick={() =>
+								onUpdateFilter(chip.key, INITIAL_FILTERS[chip.key])
+							}
+						>
+							<X size={12} aria-hidden="true" />
+						</button>
+					</span>
+				);
+			})}
 			<button type="button" className="btn btn-ghost btn-xs" onClick={onReset}>
 				Reset all
 			</button>

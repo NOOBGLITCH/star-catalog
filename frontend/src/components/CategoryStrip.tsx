@@ -80,22 +80,23 @@ export function CategoryStrip({
 
 	return (
 		<nav aria-label="Categories">
-			<div className="flex items-center justify-between px-4 pt-4 pb-2">
+			<div className="flex items-center justify-between gap-2 px-5 pt-6 pb-4">
 				<span className="text-xs font-bold uppercase tracking-widest text-primary">
 					Categories
 				</span>
 				{onClose && (
 					<button
 						type="button"
-						className="btn btn-ghost btn-xs btn-circle"
+						className="btn btn-ghost btn-sm btn-circle"
 						aria-label="Close categories menu"
 						onClick={onClose}
 					>
-						<X size={14} aria-hidden="true" />
+						<X size={16} aria-hidden="true" />
 					</button>
 				)}
 			</div>
-			<ul className="menu w-full gap-1 p-2">
+			<div className="divider mx-5 my-0" aria-hidden="true" />
+			<ul className="menu w-full gap-1.5 px-4 py-4">
 				<li>
 					<button
 						type="button"
@@ -115,6 +116,7 @@ export function CategoryStrip({
 								type="button"
 								className={selectedCategory === category.id ? "active" : ""}
 								onClick={() => onSelectCategory(category.id)}
+								title={category.description || category.title}
 							>
 								<Icon size={16} aria-hidden="true" />
 								{category.title}

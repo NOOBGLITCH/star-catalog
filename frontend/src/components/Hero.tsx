@@ -14,11 +14,23 @@ interface HeroProps {
 }
 
 export function Hero({ manifest, categoryCount }: HeroProps) {
+	const username = manifest?.username ?? "NOOBGLITCH";
+	const avatarUrl = manifest?.seo?.imageUrl;
+
 	return (
 		<header className="border-b border-base-300 py-8">
-			<div className="badge badge-primary badge-outline gap-1.5">
-				<Sparkles size={14} aria-hidden="true" />
-				Curated GitHub catalog
+			<div className="flex items-center gap-3">
+				{avatarUrl && (
+					<div className="avatar">
+						<div className="w-12 rounded-full ring ring-primary ring-offset-2 ring-offset-base-100">
+							<img src={avatarUrl} alt={`@${username} avatar`} loading="lazy" />
+						</div>
+					</div>
+				)}
+				<div className="badge badge-primary badge-outline gap-1.5">
+					<Sparkles size={14} aria-hidden="true" />
+					Curated GitHub catalog
+				</div>
 			</div>
 			<div className="mt-4 grid items-end gap-8 lg:grid-cols-[1.5fr_minmax(290px,1fr)]">
 				<div>
@@ -32,12 +44,12 @@ export function Hero({ manifest, categoryCount }: HeroProps) {
 					</p>
 					<a
 						className="btn btn-primary mt-6 gap-2"
-						href={`https://github.com/${manifest?.username ?? "NOOBGLITCH"}`}
+						href={`https://github.com/${username}`}
 						target="_blank"
 						rel="noreferrer noopener"
 					>
-						<ArrowUpRight size={16} aria-hidden="true" />
 						Open GitHub profile
+						<ArrowUpRight size={16} aria-hidden="true" />
 					</a>
 				</div>
 				<div className="stats border border-base-300 bg-base-200 shadow">
@@ -61,7 +73,7 @@ export function Hero({ manifest, categoryCount }: HeroProps) {
 						<div className="stat-figure text-primary">
 							<CalendarClock size={20} aria-hidden="true" />
 						</div>
-						<div className="stat-value text-lg">
+						<div className="stat-value text-base">
 							{formatIST(manifest?.generatedAt ?? null)}
 						</div>
 						<div className="stat-desc">last update</div>
