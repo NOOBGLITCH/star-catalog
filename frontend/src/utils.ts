@@ -3,9 +3,13 @@ import type { CatalogFilters, ClassifiedStarRecord, SortOption } from "./types";
 export const formatNumber = (value: number): string =>
 	new Intl.NumberFormat().format(value);
 
-export const formatDate = (value: string | null): string =>
+export const formatIST = (value: string | null): string =>
 	value
-		? new Date(value).toLocaleDateString(undefined, { dateStyle: "medium" })
+		? `${new Date(value).toLocaleString("en-IN", {
+				timeZone: "Asia/Kolkata",
+				dateStyle: "medium",
+				timeStyle: "short",
+			})} IST`
 		: "Unknown";
 
 export const formatRelative = (value: string | null): string => {

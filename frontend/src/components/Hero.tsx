@@ -6,7 +6,7 @@ import {
 	Star,
 } from "lucide-react";
 import type { CatalogManifest } from "../types";
-import { formatDate, formatNumber } from "../utils";
+import { formatIST, formatNumber } from "../utils";
 
 interface HeroProps {
 	manifest: CatalogManifest | null;
@@ -62,7 +62,7 @@ export function Hero({ manifest, categoryCount }: HeroProps) {
 							<CalendarClock size={20} aria-hidden="true" />
 						</div>
 						<div className="stat-value text-lg">
-							{formatDate(manifest?.generatedAt ?? null)}
+							{formatIST(manifest?.generatedAt ?? null)}
 						</div>
 						<div className="stat-desc">last update</div>
 					</div>

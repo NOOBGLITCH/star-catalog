@@ -33,6 +33,16 @@ typing causes a single filter pass.
 - Active filters render as removable chips (`FilterChips.tsx`); `Reset
   filters` / `Reset all` restores defaults (`store.INITIAL_FILTERS`).
 
+## Category drawer
+
+## Category drawer
+
+Categories live in a vertical daisyUI `menu` inside a drawer
+(`CategoryStrip.tsx`, wired in `App.tsx`): a hamburger-opened overlay at
+every screen size, with its own close button. Selecting a category closes
+the overlay; counts come from `categoryRecords`, so they respect every
+filter except category itself.
+
 ## Layout contract
 
 `layout.ts` owns the card geometry (`CARD_HEIGHT = 265`). `RepositoryCard`
@@ -45,5 +55,5 @@ per row — change the constant, never one side alone.
   across the virtualized grid (positioning wrappers are
   `role="presentation"`).
 - `:focus-visible` lime ring for keyboard users (`styles.css`).
-- The category strip is `position: sticky`; this is why `body` uses
-  `overflow-x: clip` instead of `hidden` (hidden breaks sticky).
+- `body` uses `overflow-x: clip` (not `hidden`) so fixed/overlay
+  positioning keeps working.
