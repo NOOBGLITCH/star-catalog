@@ -84,7 +84,7 @@ function seoAndPreloadData(): Plugin {
 			const username = config.github?.username ?? "NOOBGLITCH";
 			const siteTitle = config.site?.title ?? "My Stars Atlas";
 			const canonicalUrl = (
-				config.site?.url ?? "https://NOOBGLITCH.github.io/my-stars-atlas"
+				config.site?.url ?? "https://NOOBGLITCH.github.io/star-catalog"
 			).replace(/\/$/, "");
 			const seo: SeoMetadata = {
 				title: `${siteTitle} | @${username}`,
