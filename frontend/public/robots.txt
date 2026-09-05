@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://sametcn99.github.io/my-stars-atlas/sitemap.xml
+Sitemap: https://NOOBGLITCH.github.io/my-stars-atlas/sitemap.xml

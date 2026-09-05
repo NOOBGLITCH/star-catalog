@@ -1,5 +1,6 @@
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig, type Plugin } from "vite";
 
@@ -37,14 +38,10 @@ function escapeHtml(value: string): string {
 		.replace(/"/g, "&quot;");
 }
 
-function inlineStylesAndPreloadData(): Plugin {
+function seoAndPreloadData(): Plugin {
 	return {
-		name: "inline-styles-and-preload-catalog",
+		name: "seo-and-preload-catalog",
 		transformIndexHtml(html) {
-			const styles = readFileSync(
-				resolve(frontendRoot, "src/styles.css"),
-				"utf8",
-			);
 			const catalogPath = resolve(frontendRoot, "public/data/catalog.json");
 			const preloadLinks: string[] = [];
 			const catalog = existsSync(catalogPath)
@@ -84,10 +81,10 @@ function inlineStylesAndPreloadData(): Plugin {
 					};
 				};
 			};
-			const username = config.github?.username ?? "sametcn99";
+			const username = config.github?.username ?? "NOOBGLITCH";
 			const siteTitle = config.site?.title ?? "My Stars Atlas";
 			const canonicalUrl = (
-				config.site?.url ?? "https://sametcn99.github.io/my-stars-atlas"
+				config.site?.url ?? "https://NOOBGLITCH.github.io/my-stars-atlas"
 			).replace(/\/$/, "");
 			const seo: SeoMetadata = {
 				title: `${siteTitle} | @${username}`,
@@ -180,16 +177,13 @@ function inlineStylesAndPreloadData(): Plugin {
 				)
 				.replace("<!-- SEO_HEAD -->", head)
 				.replace("<!-- SEO_BODY -->", fallback)
-				.replace(
-					"</head>",
-					`${preloadLinks.join("\n")}\n<style>${styles}</style>\n</head>`,
-				);
+				.replace("</head>", `${preloadLinks.join("\n")}\n</head>`);
 		},
 	};
 }
 
 export default defineConfig({
-	plugins: [react(), inlineStylesAndPreloadData()],
+	plugins: [react(), tailwindcss(), seoAndPreloadData()],
 	root: "frontend",
 	base: "./",
 	build: {

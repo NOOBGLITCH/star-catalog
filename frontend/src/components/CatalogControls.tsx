@@ -1,3 +1,4 @@
+import { Search } from "lucide-react";
 import type { CatalogFilters, SortOption, VisibilityOption } from "../types";
 import { Select } from "./Select";
 
@@ -18,15 +19,30 @@ export function CatalogControls({
 	onUpdateFilter,
 }: CatalogControlsProps) {
 	return (
-		<section className="controls" aria-label="Catalog controls">
-			<label className="search-field">
-				<span>Search the atlas</span>
-				<input
-					type="search"
-					value={filters.query}
-					onChange={(event) => onUpdateFilter("query", event.target.value)}
-					placeholder="Name, topic, language, description..."
-				/>
+		<section
+			className="grid gap-3 py-5 md:grid-cols-2 lg:grid-cols-[2fr_repeat(4,minmax(130px,1fr))]"
+			aria-label="Catalog controls"
+		>
+			<label className="form-control w-full">
+				<div className="label">
+					<span className="label-text text-xs font-bold uppercase tracking-widest text-primary">
+						Search the atlas
+					</span>
+				</div>
+				<div className="relative">
+					<Search
+						size={16}
+						aria-hidden="true"
+						className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-base-content/40"
+					/>
+					<input
+						type="search"
+						className="input input-bordered w-full pl-9"
+						value={filters.query}
+						onChange={(event) => onUpdateFilter("query", event.target.value)}
+						placeholder="Name, topic, language, description..."
+					/>
+				</div>
 			</label>
 			<Select
 				label="Sort"

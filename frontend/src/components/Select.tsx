@@ -7,9 +7,17 @@ interface SelectProps {
 
 export function Select({ label, value, options, onChange }: SelectProps) {
 	return (
-		<label className="field">
-			<span>{label}</span>
-			<select value={value} onChange={(event) => onChange(event.target.value)}>
+		<label className="form-control w-full">
+			<div className="label">
+				<span className="label-text text-xs font-bold uppercase tracking-widest text-primary">
+					{label}
+				</span>
+			</div>
+			<select
+				className="select select-bordered w-full"
+				value={value}
+				onChange={(event) => onChange(event.target.value)}
+			>
 				{options.map((option) => (
 					<option key={option.value} value={option.value}>
 						{option.label}
