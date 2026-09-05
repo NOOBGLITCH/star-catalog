@@ -13,7 +13,7 @@
 	},
 	"site": {
 		"title": "My Stars Atlas",
-		"url": "https://NOOBGLITCH.github.io/star-catalog",
+		"url": "https://star-catalog.pages.dev",
 		"heroDescription": "Explore starred repositories with progressive chunk loading, category-first browsing, debounced search, and a tailored dark interface.",
 		"profileLinkLabel": "GitHub Profile",
 		"seo": {

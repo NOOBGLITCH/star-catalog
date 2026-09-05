@@ -28,7 +28,7 @@ const DEFAULT_README_DESCRIPTION =
 	"A generated catalog of starred GitHub repositories, grouped into stable categories.";
 const DEFAULT_README_FALLBACK_CONFIDENCE_THRESHOLD = 0.4;
 const DEFAULT_SITE_TITLE = "My Stars Atlas";
-const DEFAULT_SITE_URL = "https://NOOBGLITCH.github.io/star-catalog";
+const DEFAULT_SITE_URL = "https://star-catalog.pages.dev";
 const DEFAULT_HERO_DESCRIPTION =
 	"Explore starred repositories with progressive chunk loading, category-first browsing, debounced search, and a tailored dark interface.";
 const DEFAULT_SEO_DESCRIPTION =

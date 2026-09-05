@@ -2,7 +2,7 @@
 
 A generated catalog of starred GitHub repositories, grouped into stable categories.
 
-> Generated at 2026-09-05T20:35:13.805Z for [@NOOBGLITCH](https://github.com/NOOBGLITCH) | Total Repositories: **121** across **20** categories.
+> Generated at 2026-09-05T21:27:18.352Z for [@NOOBGLITCH](https://github.com/NOOBGLITCH) | Total Repositories: **121** across **20** categories.
 
 ## Recent Stars
 
@@ -89,10 +89,12 @@ A generated catalog of starred GitHub repositories, grouped into stable categori
 - [mitthu786/TS-JioTV](https://github.com/mitthu786/TS-JioTV) - 🚀 TS-JioTV ReBorn with ⏰ 7-Days CatchUp (385 ★)
 - [OpenSecretCloud/Maple](https://github.com/OpenSecretCloud/Maple) - Maple - Private AI Chat (91 ★)
 
-### Media & Creator Tools (1)
+### Media & Creator Tools (3)
 *PDF, audio, video, image, OCR, downloader, and creator-focused utilities for producing, transforming, or consuming media.*
 
+- [FileLeech/rapidleech-ultimate](https://github.com/FileLeech/rapidleech-ultimate) - RapidLeech Ultimate With Movie Thumbnailer (7 ★)
 - [m4mallu/tube](https://github.com/m4mallu/tube) - https://github.com/m4mallu/inline-tube-mate (31 ★)
+- [xgorn/BakaLeech-v2](https://github.com/xgorn/BakaLeech-v2) - Web transloader, deployable to heroku, clone of Bakaleech (9 ★)
 
 ### DevOps & Infra (10)
 *Containers, CI/CD, infrastructure-as-code, self-hosting, deployment pipelines, and observability or operations tooling.*
@@ -106,7 +108,7 @@ A generated catalog of starred GitHub repositories, grouped into stable categori
 - [OneUptime/oneuptime](https://github.com/OneUptime/oneuptime) - Complete open-source monitoring and observability platform. (7560 ★)
 - [piyushsachdeva/10weeksofcloudops](https://github.com/piyushsachdeva/10weeksofcloudops) - No description (235 ★)
 - [pratham022/pratham022](https://github.com/pratham022/pratham022) - No description (1 ★)
-- [xgorn/BakaLeech-v2](https://github.com/xgorn/BakaLeech-v2) - Web transloader, deployable to heroku, clone of Bakaleech (9 ★)
+- [rahulps1000/HerokuBannedDeployer](https://github.com/rahulps1000/HerokuBannedDeployer) - With this you can deploy repos that are banned/blacklisted by heroku (76 ★)
 
 ### Databases & Storage (4)
 *Databases, ORMs, query layers, caches, and storage systems used to persist, model, and retrieve application data.*
@@ -214,10 +216,8 @@ A generated catalog of starred GitHub repositories, grouped into stable categori
 - [saviomartin/codehouse](https://github.com/saviomartin/codehouse) - A whole new world of 300+ developer cheatsheets (discontinued) (959 ★)
 - [zhiwehu/Python-programming-exercises](https://github.com/zhiwehu/Python-programming-exercises) - 100+ Python challenging programming exercises (29598 ★)
 
-### Misc (4)
+### Misc (2)
 *Everything that still does not fit the taxonomy cleanly after the more specific buckets have been applied.*
 
-- [FileLeech/rapidleech-ultimate](https://github.com/FileLeech/rapidleech-ultimate) - RapidLeech Ultimate With Movie Thumbnailer (7 ★)
 - [PR0FESS0R-99/Open-Source](https://github.com/PR0FESS0R-99/Open-Source) - No description (10 ★)
-- [rahulps1000/HerokuBannedDeployer](https://github.com/rahulps1000/HerokuBannedDeployer) - With this you can deploy repos that are banned/blacklisted by heroku (76 ★)
 - [tuhinpal/Upier](https://github.com/tuhinpal/Upier) - Shareable Payment's Link for UPI (49 ★)
