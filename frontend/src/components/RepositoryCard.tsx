@@ -1,11 +1,13 @@
 import {
 	Archive,
+	Bookmark,
 	Clock,
 	ExternalLink,
 	GitFork,
 	Scale,
 	Star,
 } from "lucide-react";
+import { categoryIcon } from "../categoryIcons";
 import { languageColor } from "../languages";
 import { CARD_HEIGHT } from "../layout";
 import { useCatalogStore } from "../store";
@@ -18,8 +20,12 @@ interface RepositoryCardProps {
 
 export function RepositoryCard({ record }: RepositoryCardProps) {
 	const setFilter = useCatalogStore((state) => state.setFilter);
+	const CategoryIcon = categoryIcon(record.category);
 
-	const applyTag = (key: "language" | "license" | "query", value: string) => {
+	const applyTag = (
+		key: "language" | "license" | "query" | "category",
+		value: string,
+	) => {
 		setFilter(key, value);
 		document
 			.getElementById("catalog-heading")
@@ -33,7 +39,16 @@ export function RepositoryCard({ record }: RepositoryCardProps) {
 		>
 			<div className="card-body gap-2 overflow-hidden p-4">
 				<div className="flex items-center justify-between gap-2">
-					<span className="category-label">{record.categoryTitle}</span>
+					<button
+						type="button"
+						className="category-label cursor-pointer hover:underline"
+						title={`Show all ${record.categoryTitle} repositories`}
+						aria-label={`Filter by category ${record.categoryTitle}`}
+						onClick={() => applyTag("category", record.category)}
+					>
+						<CategoryIcon size={13} aria-hidden="true" />
+						{record.categoryTitle}
+					</button>
 					{record.archived && (
 						<span className="badge badge-outline badge-warning badge-sm gap-1">
 							<Archive size={12} aria-hidden="true" />
@@ -122,7 +137,9 @@ export function RepositoryCard({ record }: RepositoryCardProps) {
 					<time
 						dateTime={record.starredAt ?? undefined}
 						title={record.starredAt ?? undefined}
+						className="inline-flex items-center gap-1"
 					>
+						<Bookmark size={12} aria-hidden="true" />
 						Starred {formatRelative(record.starredAt)}
 					</time>
 					<time

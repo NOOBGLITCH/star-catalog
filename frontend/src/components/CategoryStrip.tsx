@@ -1,64 +1,6 @@
-import {
-	AppWindow,
-	Bot,
-	Clapperboard,
-	Cloud,
-	Cog,
-	Database,
-	GraduationCap,
-	Hash,
-	Layers,
-	LayoutGrid,
-	type LucideIcon,
-	Monitor,
-	MonitorSmartphone,
-	Newspaper,
-	Package,
-	Palette,
-	PenTool,
-	Puzzle,
-	Server,
-	ShieldCheck,
-	Smartphone,
-	Table,
-	Terminal,
-	TrendingUp,
-	Wrench,
-	X,
-	Zap,
-} from "lucide-react";
+import { LayoutGrid, X } from "lucide-react";
+import { categoryIcon } from "../categoryIcons";
 import type { CatalogCategorySummary, ClassifiedStarRecord } from "../types";
-
-const CATEGORY_ICONS: Record<string, LucideIcon> = {
-	ai: Bot,
-	automation: Zap,
-	backend: Server,
-	"browser-extensions": Puzzle,
-	cli: Terminal,
-	cloud: Cloud,
-	"content-cms": Newspaper,
-	databases: Database,
-	data: Table,
-	"data-visualization": TrendingUp,
-	design: Palette,
-	"design-systems": Layers,
-	desktop: Monitor,
-	"developer-tools": Wrench,
-	devops: Cog,
-	dotnet: Hash,
-	"editor-tooling": PenTool,
-	frontend: AppWindow,
-	learning: GraduationCap,
-	libraries: Package,
-	media: Clapperboard,
-	misc: MonitorSmartphone,
-	mobile: Smartphone,
-	security: ShieldCheck,
-};
-
-function iconFor(categoryId: string): LucideIcon {
-	return CATEGORY_ICONS[categoryId] ?? LayoutGrid;
-}
 
 interface CategoryStripProps {
 	selectedCategory: string;
@@ -109,7 +51,7 @@ export function CategoryStrip({
 					</button>
 				</li>
 				{categories.map((category) => {
-					const Icon = iconFor(category.id);
+					const Icon = categoryIcon(category.id);
 					return (
 						<li key={category.id}>
 							<button
